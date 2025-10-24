@@ -3,9 +3,9 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Dancing_Script } from "next/font/google";
 
-const dancingScript = Dancing_Script({
+const dancing = Dancing_Script({
   subsets: ["latin"],
-  weight: ["700"],
+  weight: ["400","500","600","700"], 
 });
 
 const geistSans = Geist({
@@ -31,7 +31,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased ${dancingScript.className}`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
       </body>
