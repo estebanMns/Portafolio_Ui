@@ -1,4 +1,6 @@
 import Image from "next/image";
+import Icon3D from "@/components/3D/Icon3D";
+
 
 
 export default function Home() {
@@ -30,29 +32,30 @@ export default function Home() {
             <p className="  text-[35px] ">3148762586</p>
           </div>
 
-          <div className="">
-
+          <div className="relative w-full h-[600px] bg-gradient-to-b from-[#295D6E] to-[#0f172a] rounded-2xl shadow-xl">
+            
           </div>
-
         </div>
       </header>
 
-      <section>
-        <h1 className="flex text-white justify-start text-[40px]">Conocimientos y Herramientas</h1>
-        // iconos de herramientas y conocimientos
-          <div className="grid grid-cols-5 p-30">  
-            <img src="./icnons/angular.jpg" alt="Angular" className="w-[110] h-[120]"/>
-            <img src="./images/" alt="React" className="w-[90] h-[90]"/>
-            <img src="./images/" alt="Python" className="w-[90] h-[90]"/>
-            <img src="./images/" alt="Csharp" className="w-[110] h-[120]"/>
-            <img src="./icons/vercel.svg" alt="Vercel" className="w-[110] h-[120]"/>
-            <img src="./images/java.jpeg" alt="Java" className="w-[110] h-[120]"/>
-            <img src="./images/" alt="R" className="w-[110] h-[120]"/>
-            <img src="./images/js.png" alt="JavaScript" className="w-[110] h-[120]"/>
-            <img src="./images/vsc.jpeg" alt="Visual Studio" className="w-[110] h-[120]"/>
-            <img src="./images/Github.png" alt="GitHub" className="w-[110] h-[120]"/>
-          </div>
-      </section>
+     <section className="mt-12">
+      <h1 className="flex text-white justify-start text-[40px] mb-6">
+        Conocimientos y Herramientas
+      </h1>
+
+      <div className="grid grid-cols-5 gap-10">
+        <Icon3D ruta="/models/angular.glb" />
+        <Icon3D ruta="/models/react.glb" />
+        <Icon3D ruta="/models/python.glb" />
+        <Icon3D ruta="/models/java.glb" />
+        <Icon3D ruta="/models/github.glb" />
+        <Icon3D ruta="/models/javascript.glb" />
+        <Icon3D ruta="/models/csharp.glb" />
+        <Icon3D ruta="/models/vercel.glb" />
+        <Icon3D ruta="/models/r.glb" />
+        <Icon3D ruta="/models/vscode.glb" />
+      </div>
+    </section>
 
 
 
