@@ -1,27 +1,36 @@
 "use client";
 
 import { Canvas } from "@react-three/fiber";
-import { OrbitControls, useGLTF, Environment } from "@react-three/drei";
-import { Suspense } from "react";
+import { OrbitControls, useGLTF } from "@react-three/drei";
+import { Suspense, useEffect } from "react";
 
+// Componente que carga el modelo GLTF
 function Modelo({ ruta }) {
   const { scene } = useGLTF(ruta);
-  return <primitive object={scene} scale={2} />;
+  return <primitive object={scene} scale={15.9} />;
 }
 
+// Preload automático del modelo para evitar delay o errores 404
+
+// puedes añadir más modelos si los usas en la página
+
 export default function Icon3D({ ruta }) {
-  return (
-    <div className="w-[120px] h-[120px] bg-[#1e293b] rounded-2xl shadow-md flex items-center justify-center">
-      <Canvas camera={{ position: [0, 0, 5], fov: 50 }}>
-        <ambientLight intensity={0.6} />
-        <directionalLight position={[5, 5, 5]} intensity={1.2} />
-
+    useEffect(() => {
+        useGLTF.preload("/models/github.glb");
+        useGLTF.preload("/models/angular.glb");
+        useGLTF.preload("/models/react2.glb");
+    }, []);
+    
+    return (
+    <div className="w-[120px] h-[140px]">
+      <Canvas camera={{ position: [0, 0, 0] }}>
+        {/* Suspense asegura que el render no explote si el modelo tarda en cargar */}
         <Suspense fallback={null}>
+          <ambientLight intensity={1.2} />
+          <directionalLight position={[10, 10, 5]} />
           <Modelo ruta={ruta} />
+          <OrbitControls enableZoom={false} />
         </Suspense>
-
-        <OrbitControls enableZoom={false} enablePan={false} autoRotate autoRotateSpeed={2} />
-        <Environment preset="studio" />
       </Canvas>
     </div>
   );

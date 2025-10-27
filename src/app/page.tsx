@@ -9,13 +9,13 @@ export default function Home() {
       <main className="flex flex-row gap-[32px] row-start-2 items-center sm:items-start">
         <img src="./icons/m.svg" alt="Logo" className="h-20 shadow-lg rounded-lg" />
         <nav className="flex bg-neutral-400/20 w-320 h-16  rounded-[90px] shadow-lg items-center px-6 justify-center ">
-          <button className="text-[25px] text-neutral-300 hover:bg-neutral-400/30 backdrop-blur-[1px]border border-neutral-400/20 rounded-[60px] p-4 ">Contacto</button>
-          <button className="text-[25px] text-neutral-300 hover:bg-neutral-400/30 backdrop-blur-[1px]border border-neutral-400/20 rounded-[60px] p-4">Testimonios</button>
-          <button className="text-[25px] text-neutral-300 hover:bg-neutral-400/30 backdrop-blur-[1px]border border-neutral-400/20 rounded-[60px] p-4">Proyectos</button>
-          <button className="text-[25px] text-neutral-300 hover:bg-neutral-400/30 backdrop-blur-[1px]border border-neutral-400/20 rounded-[60px] p-4">Experiencia Laboral</button>
-          <button className="text-[25px] text-neutral-300 hover:bg-neutral-400/30 backdrop-blur-[1px]border border-neutral-400/20 rounded-[60px] p-4">Hobbies</button>
-          <button className="text-[25px] text-neutral-300 hover:bg-neutral-400/30 backdrop-blur-[1px]border border-neutral-400/20 rounded-[60px] p-4">Acerca de Mi</button>
-          <button className="text-[25px] text-neutral-300 hover:bg-neutral-400/30 backdrop-blur-[1px]border border-neutral-400/20 rounded-[60px] p-4">Inicio</button>
+          <button className="text-[25px] text-neutral-300 hover:bg-neutral-400/30 backdrop-blur-[1px] border border-neutral-400/20 rounded-[60px] p-4 ">Contacto</button>
+          <button className="text-[25px] text-neutral-300 hover:bg-neutral-400/30 backdrop-blur-[1px] border border-neutral-400/20 rounded-[60px] p-4">Testimonios</button>
+          <button className="text-[25px] text-neutral-300 hover:bg-neutral-400/30 backdrop-blur-[1px] border border-neutral-400/20 rounded-[60px] p-4">Proyectos</button>
+          <button className="text-[25px] text-neutral-300 hover:bg-neutral-400/30 backdrop-blur-[1px] border border-neutral-400/20 rounded-[60px] p-4">Experiencia Laboral</button>
+          <button className="text-[25px] text-neutral-300 hover:bg-neutral-400/30 backdrop-blur-[1px] border border-neutral-400/20 rounded-[60px] p-4">Hobbies</button>
+          <button className="text-[25px] text-neutral-300 hover:bg-neutral-400/30 backdrop-blur-[1px] border border-neutral-400/20 rounded-[60px] p-4">Acerca de Mi</button>
+          <button className="text-[25px] text-neutral-300 hover:bg-neutral-400/30 backdrop-blur-[1px] border border-neutral-400/20 rounded-[60px] p-4">Inicio</button>
         </nav>
       </main>
       <header className="flex p-30 relative">
@@ -32,7 +32,7 @@ export default function Home() {
             <p className="  text-[35px] ">3148762586</p>
           </div>
 
-          <div className="relative w-full h-[600px] bg-gradient-to-b from-[#295D6E] to-[#0f172a] rounded-2xl shadow-xl">
+          <div className="relative w-[400px] h-[400px] bg-gradient-to-b from-[#295D6E] to-[#0f172a] rounded-2xl shadow-xl">
             
           </div>
         </div>
@@ -43,17 +43,11 @@ export default function Home() {
         Conocimientos y Herramientas
       </h1>
 
-      <div className="grid grid-cols-5 gap-10">
+      <div className="grid grid-cols-5 ">
         <Icon3D ruta="/models/angular.glb" />
-        <Icon3D ruta="/models/react.glb" />
-        <Icon3D ruta="/models/python.glb" />
-        <Icon3D ruta="/models/java.glb" />
+        <Icon3D ruta="/models/react2.glb" />
         <Icon3D ruta="/models/github.glb" />
-        <Icon3D ruta="/models/javascript.glb" />
-        <Icon3D ruta="/models/csharp.glb" />
-        <Icon3D ruta="/models/vercel.glb" />
-        <Icon3D ruta="/models/r.glb" />
-        <Icon3D ruta="/models/vscode.glb" />
+        <Icon3D ruta="/models/java.glb" />
       </div>
     </section>
 
