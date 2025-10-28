@@ -1,9 +1,12 @@
+"use client";
 import Image from "next/image";
 import Icon3D from "@/components/3D/Icon3D";
+import CardsCarousel from "../components/CardsCarousel";
 
 
 
-export default function Home() {
+
+export default function page() {
   return (
     <div className="min-h-screen bg-[#295D6E] p-8">
       <main className="flex flex-row gap-[32px] row-start-2 items-center sm:items-start">
@@ -44,12 +47,17 @@ export default function Home() {
 
       <div className="grid grid-cols-5 ">
         <Icon3D ruta="/models/angular.glb" />
-        <Icon3D ruta="/models/react2.glb" />
+        <Icon3D ruta="/models/react.glb" />
         <Icon3D ruta="/models/github.glb" />
         <Icon3D ruta="/models/java.glb" />
       </div>
     </section>
 
+    <section className="min-h-screen bg-[#295D6E] flex flex-col items-center justify-center">
+      <h1>Mi portafolio</h1>
+      <CardsCarousel />
+      
+    </section>
 
 
       <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">

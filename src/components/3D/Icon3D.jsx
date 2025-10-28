@@ -18,12 +18,12 @@ export default function Icon3D({ ruta }) {
     useEffect(() => {
         useGLTF.preload("/models/github.glb");
         useGLTF.preload("/models/angular.glb");
-        useGLTF.preload("/models/react2.glb");
+        useGLTF.preload("/models/react.glb");
     }, []);
     
     return (
     <div className="w-[120px] h-[140px]">
-      <Canvas camera={{ position: [0, 0, 0] }}>
+      <Canvas camera={{ position: [0, 0, 5] }}>
         {/* Suspense asegura que el render no explote si el modelo tarda en cargar */}
         <Suspense fallback={null}>
           <ambientLight intensity={1.2} />
