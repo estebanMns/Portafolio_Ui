@@ -21,6 +21,7 @@ export default function Icon3D({ ruta }) {
         useGLTF.preload("/models/react.glb");
         useGLTF.preload("/models/python.glb");
         useGLTF.preload("/models/csharp.glb");
+        useGLTF.preload("/models/vercel.glb");
     }, []);
     
     return (
