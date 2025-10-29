@@ -19,6 +19,8 @@ export default function Icon3D({ ruta }) {
         useGLTF.preload("/models/github.glb");
         useGLTF.preload("/models/angular.glb");
         useGLTF.preload("/models/react.glb");
+        useGLTF.preload("/models/python.glb");
+        useGLTF.preload("/models/csharp.glb");
     }, []);
     
     return (

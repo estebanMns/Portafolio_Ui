@@ -40,7 +40,7 @@ export default function page() {
         </div>
       </header>
 
-     <section className="mt-12">
+     <section className="mt-8">
       <h1 className="flex text-white justify-start text-[40px] mb-6">
         Conocimientos y Herramientas
       </h1>
@@ -50,6 +50,8 @@ export default function page() {
         <Icon3D ruta="/models/react.glb" />
         <Icon3D ruta="/models/github.glb" />
         <Icon3D ruta="/models/java.glb" />
+        <Icon3D ruta="/models/python.glb" />
+        <Icon3D ruta="/models/csharp.glb" />
       </div>
     </section>
 
