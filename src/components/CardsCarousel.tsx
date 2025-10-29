@@ -101,7 +101,7 @@ export default function CardsCarousel() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 80, scale: 0.9 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="absolute top-[140px] z-[999] w-[900px] h-[380px] rounded-[35px]
+            className="absolute top-[140px] z-[999] w-[1376px] h-[656px] rounded-[35px]
             bg-gradient-to-b from-[#61A6C6]/30 to-[#295D6E]/30
             backdrop-blur-[25px] border border-white/20 shadow-[0_8px_60px_-10px_rgba(97,166,198,0.6)]
             flex flex-col items-center justify-center p-10 text-white text-center
