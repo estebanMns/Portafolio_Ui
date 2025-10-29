@@ -33,15 +33,15 @@ He desarrollado sistemas de inteligencia artificial, portafolios 3D y aplicacion
 ];
 
 export default function CardsCarousel() {
-  const [current, setCurrent] = useState(0);
+  const [rotation, setRotation] = useState(0);
   const [selected, setSelected] = useState<number | null>(null);
   const [isPaused, setIsPaused] = useState(false);
 
-  // ⏱️ Rotación automática cada 4 segundos
+  // 🕒 Rotación automática cada 4s
   useEffect(() => {
-    if (isPaused || selected !== null) return; // Pausar al interactuar
+    if (isPaused || selected !== null) return;
     const interval = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % cards.length);
+      setRotation((prev) => prev + 120); // gira 120° por cada card
     }, 4000);
     return () => clearInterval(interval);
   }, [isPaused, selected]);
@@ -53,34 +53,28 @@ export default function CardsCarousel() {
       onMouseLeave={() => setIsPaused(false)}
     >
       <h2 className="text-white text-lg mb-8 uppercase tracking-widest">
-        {cards[current].title}
+        {cards[(Math.round(rotation / 120) % cards.length + cards.length) % cards.length].title}
       </h2>
 
-      {/* 🌀 Carrusel circular */}
-      <div className="relative w-[1000px] h-[400px] perspective">
-        {cards.map((card, index) => {
-          const offset = (index - current + cards.length) % cards.length;
-          const angle = offset * 45; // ángulo de separación
-          const translateZ = 350; // distancia radial
-          const opacity = offset === 0 ? 1 : 0.6;
-
-          return (
-            <motion.div
+      {/* 🌀 Carrusel 3D */}
+      <div className="relative w-[900px] h-[400px] [perspective:1200px]">
+        <motion.div
+          animate={{ rotateY: rotation }}
+          transition={{ duration: 1, ease: "easeInOut" }}
+          className="absolute inset-0 [transform-style:preserve-3d]"
+        >
+          {cards.map((card, index) => (
+            <div
               key={card.id}
-              animate={{
-                rotateY: angle,
-                translateZ,
-                opacity,
-                scale: offset === 0 ? 1.1 : 1,
-                zIndex: offset === 0 ? 10 : 0,
-              }}
-              transition={{ duration: 0.8, ease: "easeInOut" }}
               className="absolute top-0 left-1/2 -translate-x-1/2 cursor-pointer"
+              style={{
+                transform: `rotateY(${index * 120}deg) translateZ(400px)`,
+              }}
               onClick={() => setSelected(card.id === selected ? null : card.id)}
             >
               <div
-                className={`w-[240px] h-[240px] rounded-2xl overflow-hidden shadow-lg transition-transform duration-500 ${
-                  offset === 0 ? "ring-2 ring-[#61A6C6]" : "opacity-70"
+                className={`w-[240px] h-[240px] rounded-2xl overflow-hidden shadow-lg border border-[#61A6C6]/40 transition-transform duration-700 hover:scale-105 ${
+                  selected === card.id ? "ring-2 ring-[#61A6C6]" : ""
                 }`}
               >
                 <Image
@@ -91,12 +85,12 @@ export default function CardsCarousel() {
                   className="object-cover w-full h-full"
                 />
               </div>
-            </motion.div>
-          );
-        })}
+            </div>
+          ))}
+        </motion.div>
       </div>
 
-      {/* 💬 Card expandible */}
+      {/* 💬 Card informativa */}
       <AnimatePresence>
         {selected !== null && (
           <motion.div
