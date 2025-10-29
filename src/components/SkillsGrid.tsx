@@ -14,14 +14,17 @@ export default function SkillsGrid() {
   ];
 
   return (
-    <section className="mt-8">
-      <h1 className="flex text-white justify-start text-[40px] mb-6">
-        Conocimientos y Herramientas
-      </h1>
+    
+    <section className="flex flex-col items-start mt-16 w-full ">
+      <div className="flex w-[680px] mb-8 justify-center">
+        <h1 className="text-white text-[36px] mb-8 font-semibold tracking-wide">Conocimientos y Herramientas</h1>
+      </div>
 
-      <div className="grid grid-cols-5 gap-4">
+      <div className="grid grid-cols-5 gap-8 justify-items-center bg-[#2c6074]/40 backdrop-blur-md p-8 w-[680px]">
         {skills.map((skill, index) => (
-          <Icon3D key={index} ruta={skill.ruta} />
+          <div key={index} className="flex justify-center items-center w-[100px] h-[100px]">
+            <Icon3D ruta={skill.ruta} />
+          </div>
         ))}
       </div>
     </section>
