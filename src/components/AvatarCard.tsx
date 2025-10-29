@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function AvatarCard() {
   return (
-    <div className="flex p-30 relative">
+    <div className="flex p-30 relative ">
         <div className="relative flex items-center w-[700px] h-[283px] bg-gradient-to-r from-[#42788a] to-[#6fb5cc] rounded-2xl shadow-2xl">
           <img src="./images/avatar.png" 
           alt="Avatar" 
