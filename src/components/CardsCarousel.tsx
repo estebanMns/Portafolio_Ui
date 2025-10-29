@@ -84,7 +84,7 @@ export default function CardsCarousel() {
                 }`}
               >
                 <Image
-                  src="{card.image}"
+                  src={card.image}
                   alt={card.title}
                   width={300}
                   height={300}
