@@ -9,26 +9,23 @@ const cards = [
     id: 1,
     title: "Acerca de mí",
     description: `
-Soy ingeniero en software, me apasiona el conocimiento y poder dar soluciones a las problemáticas de la sociedad.
-Me gusta la innovación y la creación de productos que hagan el mundo diferente y mejor.
-Me llama mucho la atención el mundo tecnológico y me gusta crecer rápidamente en conocimiento.
-    `,
+      Soy ingeniero en software, me apasiona el conocimiento y poder dar soluciones a las problemáticas de la sociedad.
+      Me gusta la innovación y la creación de productos que hagan el mundo diferente y mejor.
+      Me llama mucho la atención el mundo tecnológico y me gusta crecer rápidamente en conocimiento.`,
     image: "/images/sobre_Mi.png",
   },
   {
     id: 2,
     title: "Experiencia",
     description: `
-He trabajado en el desarrollo de aplicaciones web modernas con frameworks como React, Next.js y tecnologías backend como Flask y Spring Boot.
-    `,
+      He trabajado en el desarrollo de aplicaciones web modernas con frameworks como React, Next.js y tecnologías backend como Flask y Spring Boot.`,
     image: "/images/experiencia_Laboral.png",
   },
   {
     id: 3,
     title: "Proyectos",
     description: `
-He desarrollado sistemas de inteligencia artificial, portafolios 3D y aplicaciones empresariales enfocadas en rendimiento y experiencia de usuario.
-    `,
+      He desarrollado sistemas de inteligencia artificial, portafolios 3D y aplicaciones empresariales enfocadas en rendimiento y experiencia de usuario.`,
     image: "/images/proyectos.png",
   },
   {
@@ -46,7 +43,7 @@ He desarrollado sistemas de inteligencia artificial, portafolios 3D y aplicacion
   }
 ];
 
-export default function CardsCarousel() {
+export default function CardsCarousel({ selectedFromNav, onClose }: { selectedFromNav: number | null; onClose: () => void }) {
   const [rotation, setRotation] = useState(0);
   const [selected, setSelected] = useState<number | null>(null);
   const [isPaused, setIsPaused] = useState(false);
@@ -59,6 +56,12 @@ export default function CardsCarousel() {
     }, 5000);
     return () => clearInterval(interval);
   }, [isPaused, selected]);
+
+  useEffect(() => {
+  if (selectedFromNav !== null) {
+    setSelected(selectedFromNav);
+  }
+}, [selectedFromNav]);
 
   return (
     <div

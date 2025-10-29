@@ -8,17 +8,18 @@ import SkillsGrid from "@/components/SkillsGrid";
 
 
 export default function page() {
+  const [selectedFromNav, setSelectedFromNav] = useState<number | null>(null);
   const [showPortfolio, setShowPortfolio] = useState(false);
   if (!showPortfolio) {
     return <IntroVideo onEnter={() => setShowPortfolio(true)} />;
   } 
   return (
-    <div className="min-h-screen bg-[#295D6E] p-8">
-      <Navbar />
+    <div className="min-h-screen bg-[#295D6E] p-8 lex flex-col items-center justify-center min-h-screen bg-[#295D6E] overflow-hidden">
+      
+      <Navbar onSelect={(id) => setSelectedFromNav(id)} />
       <AvatarCard/>
       <SkillsGrid/>
-      <CardsCarousel/>
-      
+      <CardsCarousel selectedFromNav={selectedFromNav} onClose={() => setSelectedFromNav(null)} />
    
 
 
