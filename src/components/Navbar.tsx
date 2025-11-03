@@ -48,6 +48,12 @@ export default function Navbar({ onSelect }: { onSelect: (id: number) => void })
           rounded-[60px] px-4 py-2 mx-1 backdrop-blur-[2px] transition-all duration-300 hover:scale-105">
           Contacto
         </Link>
+
+        <Link href="#testimonios" onClick={(e) => { e.preventDefault(); onSelect(6); }} className="text-[22px] text-white hover:bg-white/15 border border-white/20
+          rounded-[60px] px-4 py-2 mx-1 backdrop-blur-[2px] transition-all duration-300 hover:scale-105">
+            Testimonios
+        </Link>
+
       </nav>
     </div>
   );

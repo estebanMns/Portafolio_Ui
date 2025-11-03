@@ -40,6 +40,12 @@ const cards = [
     title: "Contacto",
     description:'Puedes contactarme por cualquiera de los siguioentes medios posibles estoy atento y activo a cuqlueira de las platasformas que estab disponibles en mi portafolio.',
     image:"/images/contacto.png",
+  },
+  {
+    id:6,
+    title: "testimonios",
+    description:'He tenido la oportunidad de trabajar con varios profesionales y clientes que han compartido sus experiencias positivas sobre mi trabajo y dedicación.',
+    image:"/images/testimonios.png",
   }
 ];
 
