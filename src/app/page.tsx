@@ -5,6 +5,7 @@ import IntroVideo from "../components/IntroVideo";
 import Navbar from "../components/Navbar";
 import AvatarCard from "@/components/AvatarCard";
 import SkillsGrid from "@/components/SkillsGrid";
+import Footer from "@/components/footer"
 
 export default function Page() {
   const [selectedFromNav, setSelectedFromNav] = useState<number | null>(null);
@@ -34,7 +35,7 @@ export default function Page() {
         <CardsCarousel selectedFromNav={selectedFromNav} onClose={() => setSelectedFromNav(null)}/>
       </div>
 
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center"></footer>
+      <Footer />
     </div>
   );
 }
