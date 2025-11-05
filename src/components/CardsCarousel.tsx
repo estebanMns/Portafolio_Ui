@@ -2,7 +2,11 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import { title } from "process";
+import React from "react";
+
+interface Props {
+  index: number;
+}
 
 const cards = [
   {
@@ -32,24 +36,32 @@ const cards = [
     id: 4,
     title: "Hobbies",
     description:
-    'Me gusta mucho el cine, la música y los videojuegos. Disfruto explorar nuevas tecnologías y aprender sobre desarrollo de software en mi tiempo libre.',
-    image:"/images/hobbies.png",
+      "Me gusta mucho el cine, la música y los videojuegos. Disfruto explorar nuevas tecnologías y aprender sobre desarrollo de software en mi tiempo libre.",
+    image: "/images/hobbies.png",
   },
   {
-    id:5,
+    id: 5,
     title: "Contacto",
-    description:'Puedes contactarme por cualquiera de los siguioentes medios posibles estoy atento y activo a cuqlueira de las platasformas que estab disponibles en mi portafolio.',
-    image:"/images/contacto.png",
+    description:
+      "Puedes contactarme por cualquiera de los siguioentes medios posibles estoy atento y activo a cuqlueira de las platasformas que estab disponibles en mi portafolio.",
+    image: "/images/contacto.png",
   },
   {
-    id:6,
+    id: 6,
     title: "testimonios",
-    description:'He tenido la oportunidad de trabajar con varios profesionales y clientes que han compartido sus experiencias positivas sobre mi trabajo y dedicación.',
-    image:"/images/testimonios.png",
-  }
+    description:
+      "He tenido la oportunidad de trabajar con varios profesionales y clientes que han compartido sus experiencias positivas sobre mi trabajo y dedicación.",
+    image: "/images/testimonios.png",
+  },
 ];
 
-export default function CardsCarousel({ selectedFromNav, onClose }: { selectedFromNav: number | null; onClose: () => void }) {
+export default function CardsCarousel({
+  selectedFromNav,
+  onClose,
+}: {
+  selectedFromNav: number | null;
+  onClose: () => void;
+}) {
   const [rotation, setRotation] = useState(0);
   const [selected, setSelected] = useState<number | null>(null);
   const [isPaused, setIsPaused] = useState(false);
@@ -58,18 +70,20 @@ export default function CardsCarousel({ selectedFromNav, onClose }: { selectedFr
   useEffect(() => {
     if (isPaused || selected !== null) return;
     const interval = setInterval(() => {
-      setRotation((prev) => prev + 120); // gira 120° por cada card
+      setRotation((prev) => prev + 120);
     }, 5000);
     return () => clearInterval(interval);
   }, [isPaused, selected]);
 
   useEffect(() => {
-  if (selectedFromNav !== null) {
-    setSelected(selectedFromNav);
-  }
-}, [selectedFromNav]);
+    if (selectedFromNav !== null) {
+      setSelected(selectedFromNav);
+    }
+  }, [selectedFromNav]);
 
   return (
+
+    
     <div
       className="relative flex flex-col items-center justify-center w-full mt-20"
       onMouseEnter={() => setIsPaused(true)}
@@ -81,7 +95,16 @@ export default function CardsCarousel({ selectedFromNav, onClose }: { selectedFr
       </h2>
 
       {/* 🌀 Carrusel 3D */}
-      <div className="relative w-[900px] h-[500px] [perspective:1400px] z-10">
+      <div className="relative w-[900px] h-[500px] [perspective:1400px] z-10 flex items-center justify-center">
+        {/* ⬅️ Flecha izquierda */}
+        <button
+          className="absolute left-[-60px] bg-[#61A6C6]/40 hover:bg-[#61A6C6]/80 text-white text-3xl px-4 py-2 rounded-full shadow-lg z-50 transition-all"
+          onClick={() => setRotation((prev) => prev - 120)}
+        >
+          ‹
+        </button>
+
+        {/* Carrusel */}
         <motion.div
           animate={{ rotateY: rotation }}
           transition={{ duration: 0.5, ease: "easeInOut" }}
@@ -97,7 +120,6 @@ export default function CardsCarousel({ selectedFromNav, onClose }: { selectedFr
               }}
               onClick={() => setSelected(card.id === selected ? null : card.id)}
             >
-              {/* Aquí tu componente de card */}
               <div
                 className={`w-[360px] h-[360px] rounded-2xl overflow-hidden shadow-[0_0_30px_rgba(97,166,198,0.6)] border border-[#61A6C6]/50 transition-transform duration-700 hover:scale-110 hover:shadow-[0_0_50px_rgba(97,166,198,0.8)] ${
                   selected === card.id ? "ring-4 ring-[#61A6C6]" : ""
@@ -114,43 +136,50 @@ export default function CardsCarousel({ selectedFromNav, onClose }: { selectedFr
             </div>
           ))}
         </motion.div>
+
+        {/* ➡️ Flecha derecha */}
+        <button
+          className="absolute right-[-60px] bg-[#61A6C6]/40 hover:bg-[#61A6C6]/80 text-white text-3xl px-4 py-2 rounded-full shadow-lg z-50 transition-all"
+          onClick={() => setRotation((prev) => prev + 120)}
+        >
+          ›
+        </button>
       </div>
 
-      {/* 💬 Card informativa superpuesta */}
+      {/* 💬 Card informativa */}
       <AnimatePresence>
-      {selected !== null && (
-        <motion.div
-          key="infoCard"
-          initial={{ opacity: 0, y: 80, scale: 0.9 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          exit={{ opacity: 0, y: 80, scale: 0.9 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-          className="absolute top-[140px] z-[999] w-[1376px] h-[656px] rounded-[35px]
-          bg-gradient-to-b from-[#61A6C6]/30 to-[#295D6E]/30
-          backdrop-blur-[25px] border border-white/20 shadow-[0_8px_60px_-10px_rgba(97,166,198,0.6)]
-          flex flex-col items-center justify-center p-10 text-white text-center
-          before:absolute before:inset-0 before:bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.25),transparent_60%)]
-          before:rounded-[35px] before:blur-xl before:pointer-events-none"
-        >
-          {/* 🔴 Botón rojo para cerrar */}
-          <button
-            onClick={() => setSelected(null)}
-            className="absolute top-5 left-5 bg-red-600 hover:bg-red-700 text-white
-            rounded-full w-4 h-4 flex items-center justify-center text-xl font-bold shadow-lg
-            transition-transform transform hover:scale-120"
+        {selected !== null && (
+          <motion.div
+            key="infoCard"
+            initial={{ opacity: 0, y: 80, scale: 0.9 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 80, scale: 0.9 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="absolute top-[140px] z-[999] w-[1376px] h-[656px] rounded-[35px]
+            bg-gradient-to-b from-[#61A6C6]/30 to-[#295D6E]/30
+            backdrop-blur-[25px] border border-white/20 shadow-[0_8px_60px_-10px_rgba(97,166,198,0.6)]
+            flex flex-col items-center justify-center p-10 text-white text-center
+            before:absolute before:inset-0 before:bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.25),transparent_60%)]
+            before:rounded-[35px] before:blur-xl before:pointer-events-none"
           >
-            x
-          </button>
+            <button
+              onClick={() => setSelected(null)}
+              className="absolute top-5 left-5 bg-red-600 hover:bg-red-700 text-white
+              rounded-full w-4 h-4 flex items-center justify-center text-xl font-bold shadow-lg
+              transition-transform transform hover:scale-120"
+            >
+              x
+            </button>
 
-          <h3 className="text-3xl font-semibold mb-6 drop-shadow-md font-[cursive]">
-            {cards.find((c) => c.id === selected)?.title}
-          </h3>
-          <p className="text-[19px] leading-relaxed whitespace-pre-line italic font-[cursive] drop-shadow-sm">
-            {cards.find((c) => c.id === selected)?.description}
-          </p>
-        </motion.div>
-      )}
-    </AnimatePresence>
+            <h3 className="text-3xl font-semibold mb-6 drop-shadow-md font-[cursive]">
+              {cards.find((c) => c.id === selected)?.title}
+            </h3>
+            <p className="text-[19px] leading-relaxed whitespace-pre-line italic font-[cursive] drop-shadow-sm">
+              {cards.find((c) => c.id === selected)?.description}
+            </p>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }

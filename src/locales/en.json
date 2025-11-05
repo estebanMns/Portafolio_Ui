@@ -1,0 +1,36 @@
+{
+  "navbar": {
+    "about": "About Me",
+    "experience": "Work Experience",
+    "projects": "Projects",
+    "hobbies": "Hobbies",
+    "contact": "Contact",
+    "testimonials": "Testimonials"
+  },
+  "cards": [
+    {
+      "title": "About Me",
+      "description": "I am a software engineer passionate about knowledge and solving real-world problems..."
+    },
+    {
+      "title": "Experience",
+      "description": "I’ve worked on modern web applications with frameworks like React..."
+    },
+    {
+      "title": "Projects",
+      "description": "I’ve developed AI systems, 3D portfolios, and enterprise applications..."
+    },
+    {
+      "title": "Hobbies",
+      "description": "I enjoy movies, music, and video games. I love exploring new technologies..."
+    },
+    {
+      "title": "Contact",
+      "description": "You can contact me through any of the platforms listed..."
+    },
+    {
+      "title": "Testimonials",
+      "description": "I’ve had the opportunity to work with several professionals and clients..."
+    }
+  ]
+}

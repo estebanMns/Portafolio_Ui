@@ -1,0 +1,36 @@
+{
+  "navbar": {
+    "about": "Acerca de Mi",
+    "experience": "Experiencia Laboral",
+    "projects": "Proyectos",
+    "hobbies": "Hobbies",
+    "contact": "Contacto",
+    "testimonials": "Testimonios"
+  },
+  "cards": [
+    {
+      "title": "Acerca de mí",
+      "description": "Soy ingeniero en software, me apasiona el conocimiento y poder dar soluciones a las problemáticas de la sociedad..."
+    },
+    {
+      "title": "Experiencia",
+      "description": "He trabajado en el desarrollo de aplicaciones web modernas con frameworks como React..."
+    },
+    {
+      "title": "Proyectos",
+      "description": "He desarrollado sistemas de inteligencia artificial, portafolios 3D..."
+    },
+    {
+      "title": "Hobbies",
+      "description": "Me gusta mucho el cine, la música y los videojuegos..."
+    },
+    {
+      "title": "Contacto",
+      "description": "Puedes contactarme por cualquiera de los siguientes medios..."
+    },
+    {
+      "title": "Testimonios",
+      "description": "He tenido la oportunidad de trabajar con varios profesionales..."
+    }
+  ]
+}
