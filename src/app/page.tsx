@@ -6,6 +6,8 @@ import Navbar from "../components/Navbar";
 import AvatarCard from "@/components/AvatarCard";
 import SkillsGrid from "@/components/SkillsGrid";
 import Footer from "@/components/footer"
+import Card3D from "@/components/Card3D";
+
 
 export default function Page() {
   const [selectedFromNav, setSelectedFromNav] = useState<number | null>(null);
@@ -28,7 +30,9 @@ export default function Page() {
   return (
     <div className="min-h-screen bg-[#295D6E] flex flex-col items-start justify-center overflow-hidden p-10 gap-10">
       <Navbar onSelect={(id) => setSelectedFromNav(id)} />
+
       <AvatarCard />
+      <Card3D /> 
       <SkillsGrid />
 
       <div ref={carouselRef} className="w-full flex justify-center">

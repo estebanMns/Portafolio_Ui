@@ -2,7 +2,7 @@
 
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, useGLTF } from "@react-three/drei";
-import { Suspense, useEffect } from "react";
+import { Suspense, use, useEffect } from "react";
 
 // Componente que carga el modelo GLTF
 function Modelo({ ruta }) {
@@ -22,6 +22,7 @@ export default function Icon3D({ ruta }) {
         useGLTF.preload("/models/python.glb");
         useGLTF.preload("/models/csharp.glb");
         useGLTF.preload("/models/vercel.glb");
+        useGLTF.preload("/models/luffy.glb");
     }, []);
     
     return (

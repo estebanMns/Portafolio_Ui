@@ -56,20 +56,20 @@ const cards = [
   },
 ];
 
-const { t } = useTranslation();
 
 export default function CardsCarousel({
   
-  selectedFromNav,
-  onClose,
+selectedFromNav,
+onClose,
 }: {
   selectedFromNav: number | null;
   onClose: () => void;
 }) {
+  
   const [rotation, setRotation] = useState(0);
   const [selected, setSelected] = useState<number | null>(null);
   const [isPaused, setIsPaused] = useState(false);
-
+  
   // 🕒 Rotación automática cada 4s
   useEffect(() => {
     if (isPaused || selected !== null) return;

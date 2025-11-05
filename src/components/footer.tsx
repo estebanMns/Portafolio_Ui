@@ -2,6 +2,8 @@
 import { motion } from "framer-motion";
 import { FaInstagram, FaFacebook, FaWhatsapp } from "react-icons/fa";
 
+
+
 export default function Footer() {
   return (
     <footer className="relative w-full mt-20 overflow-hidden bg-gradient-to-t from-[#16394a] to-[#295D6E] text-white py-10 rounded-t-3xl shadow-lg">
