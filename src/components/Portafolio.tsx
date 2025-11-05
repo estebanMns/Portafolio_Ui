@@ -1,7 +1,6 @@
 "use client";
 import Navbar from "./Navbar";
 import AvatarCard from "./AvatarCard";
-import KnowledgeGrid from "./KnowledgeGrid";
 import CardsCarousel from "./CardsCarousel";
 
 export default function Portfolio() {
