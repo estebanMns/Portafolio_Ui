@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import React from "react";
+import useTranslation from "../hooks/useTranslation";
 
 interface Props {
   index: number;
@@ -55,7 +56,10 @@ const cards = [
   },
 ];
 
+const { t } = useTranslation();
+
 export default function CardsCarousel({
+  
   selectedFromNav,
   onClose,
 }: {

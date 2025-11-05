@@ -2,8 +2,10 @@
 
 import React from "react";
 import Link from "next/link";
+import useTranslation from "../hooks/useTranslation";
 
 export default function Navbar({ onSelect }: { onSelect: (id: number) => void }) {
+  const { t, lang, toggleLang } = useTranslation();
   return (
     <div className="flex flex-row gap-[32px] row-start-2 items-center sm:items-start justify-center relative z-50">
       {/* Logo */}
@@ -22,38 +24,45 @@ export default function Navbar({ onSelect }: { onSelect: (id: number) => void })
         <Link href="#inicio" onClick={(e) => { e.preventDefault(); onSelect(1); }}
           className="text-[22px] text-white hover:bg-white/15 border border-white/20
           rounded-[60px] px-4 py-2 mx-1 backdrop-blur-[2px] transition-all duration-300 hover:scale-105">
-          Acerca de Mi
+          {t.navbar.about || "Acerca de Mi"}
         </Link>
 
         <Link href="#experiencia" onClick={(e) => { e.preventDefault(); onSelect(2); }}
           className="text-[22px] text-white hover:bg-white/15 border border-white/20
           rounded-[60px] px-4 py-2 mx-1 backdrop-blur-[2px] transition-all duration-300 hover:scale-105">
-          Experiencia Laboral
+          {t.navbar.experience || "Experiencia Laboral"}
         </Link>
 
         <Link href="#proyectos" onClick={(e) => { e.preventDefault(); onSelect(3); }}
           className="text-[22px] text-white hover:bg-white/15 border border-white/20
           rounded-[60px] px-4 py-2 mx-1 backdrop-blur-[2px] transition-all duration-300 hover:scale-105">
-          Proyectos
+          {t.navbar.projects || "Proyectos"}
         </Link>
 
         <Link href="#hobbies" onClick={(e) => { e.preventDefault(); onSelect(4); }}
           className="text-[22px] text-white hover:bg-white/15 border border-white/20
           rounded-[60px] px-4 py-2 mx-1 backdrop-blur-[2px] transition-all duration-300 hover:scale-105">
-          Hobbies
+          {t.navbar.hobbies || "Hobbies"}
         </Link>
 
         <Link href="#contacto" onClick={(e) => { e.preventDefault(); onSelect(5); }}
           className="text-[22px] text-white hover:bg-white/15 border border-white/20
           rounded-[60px] px-4 py-2 mx-1 backdrop-blur-[2px] transition-all duration-300 hover:scale-105">
-          Contacto
+          {t.navbar.contact || "Contacto"}
         </Link>
 
         <Link href="#testimonios" onClick={(e) => { e.preventDefault(); onSelect(6); }} className="text-[22px] text-white hover:bg-white/15 border border-white/20
           rounded-[60px] px-4 py-2 mx-1 backdrop-blur-[2px] transition-all duration-300 hover:scale-105">
-            Testimonios
+            {t.navbar.testimonials || "Testimonios"}
         </Link>
+        {/* 🌐 Botón de idioma */}
 
+        <button
+          onClick={toggleLang}
+          className="text-[20px] text-white border border-white/20 rounded-[60px] px-4 py-2 ml-3 hover:bg-white/15 transition-all duration-300 hover:scale-105"
+        >
+          {lang === "es" ? "EN" : "ES"}
+        </button>
       </nav>
     </div>
   );
