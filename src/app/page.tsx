@@ -31,16 +31,19 @@ export default function Page() {
     <div className="min-h-screen bg-[#295D6E] flex flex-col items-start justify-center overflow-hidden p-2 gap-10">
       <Navbar onSelect={(id) => setSelectedFromNav(id)} />
         
-        <div className="grid grid-cols-2 gap-8 w-full max-w-6xl">
+        {/* CAMBIOS CLAVE AQUÍ: grid-cols-1 y md:grid-cols-2 */}
+        <div className="grid grid-cols-1 gap-8 w-full max-w-6xl md:grid-cols-2">
         
-        {/* Columna izquierda: Avatar + Skills */}
-        <div className="flex flex-col gap-8">
+        {/* 1. Columna Avatar + Skills */}
+        {/* En móvil (por defecto), aparece primero (arriba). En desktop (md), se va a la DERECHA (order-2). */}
+        <div className="flex flex-col gap-8 md:order-1">
           <AvatarCard />
           <SkillsGrid />
         </div>
 
-        {/* Columna derecha: objeto 3D */}
-        <div className="flex items-center justify-center">
+        {/* 2. Columna objeto 3D (LuffyScene) */}
+        {/* En móvil, aparece de segundo (abajo). En desktop (md), se queda a la IZQUIERDA (order-1). */}
+        <div className="flex items-center justify-center md:order-2">
           <LuffyScene />
         </div>
 

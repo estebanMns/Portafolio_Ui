@@ -14,7 +14,7 @@ function LuffyModel() {
 export default function LuffyScene() {
   return (
     <div
-      className="relative w-[300px] h-[810px] flex items-center justify-center
+      className="relative w-full h-[550px] md:h-[880px] flex items-center justify-center
       bg-gradient-to-r from-[#61A6C6]/30 via-[#295D6E]/40 to-[#61A6C6]/30
       backdrop-blur-[25px] border border-white/20
       shadow-[0_8px_60px_-10px_rgba(97,166,198,0.6)]
