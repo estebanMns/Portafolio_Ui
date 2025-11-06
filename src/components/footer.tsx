@@ -24,7 +24,7 @@ export default function Footer() {
         {/* 📬 Contacto */}
         <div className="text-center md:text-left">
           <h2 className="text-2xl font-bold text-white mb-2">Contacto</h2>
-          <p className="text-gray-300">estebanmenesesdev@gmail.com</p>
+          <p className="text-gray-300">zlesteban1008@gmail.com</p>
           <p className="text-gray-300">Pasto, Nariño - Colombia</p>
         </div>
 
