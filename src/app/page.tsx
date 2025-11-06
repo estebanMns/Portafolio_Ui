@@ -28,7 +28,7 @@ export default function Page() {
   }
 
   return (
-    <div className="min-h-screen bg-[#295D6E] flex flex-col items-start justify-center overflow-hidden p-2 gap-10">
+    <div className="min-h-screen bg-gradient-to-t from-[#16394a] to-[#295D6E] flex flex-col items-start justify-center overflow-hidden p-2 gap-10">
       <Navbar onSelect={(id) => setSelectedFromNav(id)} />
         
         {/* CAMBIOS CLAVE AQUÍ: grid-cols-1 y md:grid-cols-2 */}

@@ -85,7 +85,7 @@ export default function CardsCarousel({
   // Distancia Z para la ilusión 3D: más corta en móvil
   const translateZValue = selected === null ? '300px' : '500px'; 
   // Tamaño de la tarjeta: más pequeña en móvil
-  const cardSizeClasses = 'w-[250px] h-[250px] md:w-[360px] md:h-[360px]';
+  const cardSizeClasses = 'w-[250px] h-[250px] md:w-[260px] md:h-[360px]';
 
   return (
     
