@@ -15,10 +15,10 @@ export default function AvatarCard() {
     // 🔹 Contenedor principal: Ajuste de padding/margen superior para bajar la tarjeta
     // Usamos 'pt-20' para que baje en móvil, y 'md:pt-10' para que baje un poco menos en desktop.
     // Añadimos 'mb-8' para darle un margen inferior, separándola de las habilidades.
-    <div className="flex pt-20 pb-4 px-20 md:p-30 relative w-full mb-8"> 
+    <div className="flex pt-20 pb-7 px-20 md:p-30 relative w-full mb-8"> 
         
         {/* 🔹 Tarjeta: Aplicamos glassmorphism, w-full, y altura responsiva. */}
-        <div className={`relative flex items-centerr w-full h-[300px] md:h-[283px] ${glassmorphismClasses}`}>
+        <div className={`relative flex items-centerr w-[40rem] h-[300px] md:h-[283px] ${glassmorphismClasses}`}>
           <img 
             src="./images/avatar.png" 
             alt="Avatar" 

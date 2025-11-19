@@ -30,29 +30,18 @@ export default function Page() {
   return (
     <div className="min-h-screen bg-gradient-to-t from-[#16394a] to-[#295D6E] flex flex-col items-start justify-center overflow-hidden p-2 gap-10">
       <Navbar onSelect={(id) => setSelectedFromNav(id)} />
-        
-        {/* CAMBIOS CLAVE AQUÍ: grid-cols-1 y md:grid-cols-2 */}
-        <div className="grid grid-cols-1 gap-8 w-full max-w-6xl md:grid-cols-2">
-        
-        {/* 1. Columna Avatar + Skills */}
-        {/* En móvil (por defecto), aparece primero (arriba). En desktop (md), se va a la DERECHA (order-2). */}
-        <div className="flex flex-col gap-8 md:order-1">
-          <AvatarCard />
-          <SkillsGrid />
+      <div className="flex flex-col flex-row gap-10">
+          <div className="lg:w-[60%] p-5">
+            <AvatarCard />
+            <SkillsGrid />
+          </div>
+
+          <div className="flex w-[40%] h-[600px] md:h-[700px] p-27">
+            <LuffyScene />
+          </div>
         </div>
-
-        {/* 2. Columna objeto 3D (LuffyScene) */}
-        {/* En móvil, aparece de segundo (abajo). En desktop (md), se queda a la IZQUIERDA (order-1). */}
-        <div className="flex items-center justify-center md:order-2">
-          <LuffyScene />
-        </div>
-
-      </div>
-
-      <div ref={carouselRef} className="w-full flex justify-end">
-        <CardsCarousel selectedFromNav={selectedFromNav} onClose={() => setSelectedFromNav(null)}/>
-      </div>
-
+      
+      <CardsCarousel selectedFromNav={selectedFromNav} onClose={() => setSelectedFromNav(null)}/>
       <Footer />
     </div>
   );
